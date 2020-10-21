@@ -1,8 +1,11 @@
-const { Telegraf } = require('telegraf')
+const express = require('express')
+const app = express()
+const port = 3000
 
-const bot = new Telegraf("1197790310:AAFct93MLfMprOyf2GGqLhN23UnOVUeZ38I")
-bot.start((ctx) => ctx.reply('Welcome'))
-bot.help((ctx) => ctx.reply('Send me a sticker'))
-bot.on('sticker', (ctx) => ctx.reply('👍'))
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.launch()
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
